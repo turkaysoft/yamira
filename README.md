@@ -24,6 +24,8 @@ You can support this project by making a donation to help ensure its sustainabil
 * **Multilingual:** Fully supports 15+ languages including Arabic, Chinese, English, Turkish, and more.
 * **Portable:** No installation required. Simply extract and run to protect your drives on the go.
 * **Truly Free:** Professional-grade USB security provided at no cost.
+* **Built-in Update Mechanism:** It features a built-in smart update mechanism developed specifically by **Türkaysoft**.
+
 ---
 
 ## Interface Preview
