@@ -43,6 +43,7 @@
             this.arabicToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.chineseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dutchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.frenchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.germanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hindiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,18 +60,16 @@
             this.fullScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tSWizardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.donateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.Panel_BG = new System.Windows.Forms.Panel();
             this.DataMainTable = new System.Windows.Forms.DataGridView();
             this.Panel_Right = new System.Windows.Forms.Panel();
-            this.Label_NotUSB = new System.Windows.Forms.Label();
             this.BtnActiveProtect = new Yamira.TSCustomButton();
             this.BtnDisabledProtect = new Yamira.TSCustomButton();
             this.BtnFormatNTFS = new Yamira.TSCustomButton();
-            this.dutchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Label_NotUSB = new System.Windows.Forms.Label();
             this.HeaderMenu.SuspendLayout();
             this.Panel_BG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataMainTable)).BeginInit();
@@ -82,7 +81,6 @@
             this.HeaderMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
             this.refreshToolStripMenuItem,
-            this.tSWizardToolStripMenuItem,
             this.donateToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.HeaderMenu.Location = new System.Drawing.Point(0, 0);
@@ -162,85 +160,91 @@
             // arabicToolStripMenuItem
             // 
             this.arabicToolStripMenuItem.Name = "arabicToolStripMenuItem";
-            this.arabicToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.arabicToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.arabicToolStripMenuItem.Text = "Arabic";
             // 
             // chineseToolStripMenuItem
             // 
             this.chineseToolStripMenuItem.Name = "chineseToolStripMenuItem";
-            this.chineseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.chineseToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.chineseToolStripMenuItem.Text = "Chinese";
             // 
             // englishToolStripMenuItem
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.englishToolStripMenuItem.Text = "English";
+            // 
+            // dutchToolStripMenuItem
+            // 
+            this.dutchToolStripMenuItem.Name = "dutchToolStripMenuItem";
+            this.dutchToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.dutchToolStripMenuItem.Text = "Dutch";
             // 
             // frenchToolStripMenuItem
             // 
             this.frenchToolStripMenuItem.Name = "frenchToolStripMenuItem";
-            this.frenchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.frenchToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.frenchToolStripMenuItem.Text = "French";
             // 
             // germanToolStripMenuItem
             // 
             this.germanToolStripMenuItem.Name = "germanToolStripMenuItem";
-            this.germanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.germanToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.germanToolStripMenuItem.Text = "German";
             // 
             // hindiToolStripMenuItem
             // 
             this.hindiToolStripMenuItem.Name = "hindiToolStripMenuItem";
-            this.hindiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hindiToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.hindiToolStripMenuItem.Text = "Hindi";
             // 
             // italianToolStripMenuItem
             // 
             this.italianToolStripMenuItem.Name = "italianToolStripMenuItem";
-            this.italianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.italianToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.italianToolStripMenuItem.Text = "Italian";
             // 
             // japaneseToolStripMenuItem
             // 
             this.japaneseToolStripMenuItem.Name = "japaneseToolStripMenuItem";
-            this.japaneseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.japaneseToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.japaneseToolStripMenuItem.Text = "Japanese";
             // 
             // koreanToolStripMenuItem
             // 
             this.koreanToolStripMenuItem.Name = "koreanToolStripMenuItem";
-            this.koreanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.koreanToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.koreanToolStripMenuItem.Text = "Korean";
             // 
             // polishToolStripMenuItem
             // 
             this.polishToolStripMenuItem.Name = "polishToolStripMenuItem";
-            this.polishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.polishToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.polishToolStripMenuItem.Text = "Polish";
             // 
             // portugueseToolStripMenuItem
             // 
             this.portugueseToolStripMenuItem.Name = "portugueseToolStripMenuItem";
-            this.portugueseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.portugueseToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.portugueseToolStripMenuItem.Text = "Portuguese";
             // 
             // russianToolStripMenuItem
             // 
             this.russianToolStripMenuItem.Name = "russianToolStripMenuItem";
-            this.russianToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.russianToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.russianToolStripMenuItem.Text = "Russian";
             // 
             // spanishToolStripMenuItem
             // 
             this.spanishToolStripMenuItem.Name = "spanishToolStripMenuItem";
-            this.spanishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.spanishToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.spanishToolStripMenuItem.Text = "Spanish";
             // 
             // turkishToolStripMenuItem
             // 
             this.turkishToolStripMenuItem.Name = "turkishToolStripMenuItem";
-            this.turkishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.turkishToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.turkishToolStripMenuItem.Text = "Turkish";
             // 
             // startupToolStripMenuItem
@@ -284,16 +288,6 @@
             this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.refreshToolStripMenuItem.Text = "Refresh";
             this.refreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
-            // 
-            // tSWizardToolStripMenuItem
-            // 
-            this.tSWizardToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tSWizardToolStripMenuItem.Name = "tSWizardToolStripMenuItem";
-            this.tSWizardToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.S)));
-            this.tSWizardToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.tSWizardToolStripMenuItem.Text = "TSWizard";
-            this.tSWizardToolStripMenuItem.Click += new System.EventHandler(this.TSWizardToolStripMenuItem_Click);
             // 
             // donateToolStripMenuItem
             // 
@@ -390,22 +384,6 @@
             this.Panel_Right.Size = new System.Drawing.Size(250, 567);
             this.Panel_Right.TabIndex = 1;
             // 
-            // Label_NotUSB
-            // 
-            this.Label_NotUSB.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.Label_NotUSB.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Label_NotUSB.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Label_NotUSB.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Label_NotUSB.Location = new System.Drawing.Point(5, 417);
-            this.Label_NotUSB.Margin = new System.Windows.Forms.Padding(3);
-            this.Label_NotUSB.Name = "Label_NotUSB";
-            this.Label_NotUSB.Padding = new System.Windows.Forms.Padding(5);
-            this.Label_NotUSB.Size = new System.Drawing.Size(245, 150);
-            this.Label_NotUSB.TabIndex = 3;
-            this.Label_NotUSB.Text = "Herhangi bir USB depolama aygıtı tespit edilemedi.";
-            this.Label_NotUSB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Label_NotUSB.Visible = false;
-            // 
             // BtnActiveProtect
             // 
             this.BtnActiveProtect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -490,11 +468,21 @@
             this.BtnFormatNTFS.UseVisualStyleBackColor = false;
             this.BtnFormatNTFS.Click += new System.EventHandler(this.BtnFormatNTFS_Click);
             // 
-            // dutchToolStripMenuItem
+            // Label_NotUSB
             // 
-            this.dutchToolStripMenuItem.Name = "dutchToolStripMenuItem";
-            this.dutchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.dutchToolStripMenuItem.Text = "Dutch";
+            this.Label_NotUSB.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Label_NotUSB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Label_NotUSB.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Label_NotUSB.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Label_NotUSB.Location = new System.Drawing.Point(5, 417);
+            this.Label_NotUSB.Margin = new System.Windows.Forms.Padding(3);
+            this.Label_NotUSB.Name = "Label_NotUSB";
+            this.Label_NotUSB.Padding = new System.Windows.Forms.Padding(5);
+            this.Label_NotUSB.Size = new System.Drawing.Size(245, 150);
+            this.Label_NotUSB.TabIndex = 3;
+            this.Label_NotUSB.Text = "Herhangi bir USB depolama aygıtı tespit edilemedi.";
+            this.Label_NotUSB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Label_NotUSB.Visible = false;
             // 
             // YamiraMain
             // 
@@ -546,7 +534,6 @@
         private TSCustomButton BtnFormatNTFS;
         private System.Windows.Forms.Label Label_NotUSB;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tSWizardToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemThemeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polishToolStripMenuItem;

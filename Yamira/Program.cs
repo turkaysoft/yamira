@@ -18,6 +18,10 @@ namespace Yamira{
         public static readonly bool ts_pre_debug_mode = false;
         public static readonly bool virtualization_mode = false;
         // ======================================================================================================
+        // TS UPDATER TEXT
+        public static readonly string updater_exe_name = "TSUpdater.exe";
+        public static readonly string updater_old_exe_name = "TSUpdater.exe.old";
+        // ======================================================================================================
         [STAThread]
         static void Main(){
             SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
@@ -29,7 +33,7 @@ namespace Yamira{
                     string caption = results.Cast<ManagementObject>().Select(mo => mo["Caption"]?.ToString()).FirstOrDefault();
                     windows_mode = (caption?.IndexOf("Windows 11", StringComparison.OrdinalIgnoreCase) >= 0) ? 1 : 0;
                 }
-            }catch (Exception) { }
+            }catch (Exception){ }
             // ------------------------------------------------------------------
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

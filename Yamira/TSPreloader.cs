@@ -5,7 +5,6 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 // TS Modules
@@ -214,6 +213,12 @@ namespace Yamira{
                 TSGetLangs software_lang = new TSGetLangs(lang_file);
                 Text = string.Format(software_lang.TSReadLangs("TSPreloader", "tsbt_title"), Application.CompanyName);
                 load_text = software_lang.TSReadLangs("TSPreloader", "tsbt_load");
+                // DELETE OLD UPDATER EXE
+                try{
+                    if (File.Exists(Program.updater_old_exe_name)){
+                        File.Delete(Program.updater_old_exe_name);
+                    }
+                }catch (Exception){ }
             }catch (Exception){ }
         }
         // PROGRESS BAR & PROGRESS TEXT PROCESS
