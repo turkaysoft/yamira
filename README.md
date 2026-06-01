@@ -24,9 +24,8 @@ You can support this project by making a donation to help ensure its sustainabil
 * **Real-Time USB Monitoring:** Continuously monitors USB connection events using Windows Management Instrumentation (WMI) and immediately triggers protection protocols the moment a new drive is detected.
 * **Pure Performance:** Developed exclusively in **C# and .NET Framework** with **zero external libraries** or dependencies.
 * **Modern UI:** Clean and intuitive interface with Light, Dark, and System theme support.
-* **Multilingual:** Fully supports 15+ languages including Arabic, Chinese, English, Turkish, and more.
+* **Multilingual:** It supports 15 different languages, primarily English. You can access the supported languages here: [Supported Languages](https://github.com/turkaysoft/yamira/discussions/1)
 * **Portable:** No installation required. Simply extract and run to protect your drives on the go.
-* **Truly Free:** Professional-grade USB security provided at no cost.
 * **Built-in Update Mechanism:** It features a built-in smart update mechanism developed specifically by **Türkaysoft**.
 
 ---
