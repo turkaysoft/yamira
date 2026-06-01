@@ -19,6 +19,9 @@ You can support this project by making a donation to help ensure its sustainabil
 ## Key Features
 
 * **Instant Protection:** Automatically secures USB devices against malware upon connection.
+* **Malware Defense:** Prevents common USB-borne viruses from tampering with your file structure.
+* **File Visibility Guard:** Actively counteracts malware that attempts to hide or delete user data.
+* **Real-Time USB Monitoring:** Continuously monitors USB connection events using Windows Management Instrumentation (WMI) and immediately triggers protection protocols the moment a new drive is detected.
 * **Pure Performance:** Developed exclusively in **C# and .NET Framework** with **zero external libraries** or dependencies.
 * **Modern UI:** Clean and intuitive interface with Light, Dark, and System theme support.
 * **Multilingual:** Fully supports 15+ languages including Arabic, Chinese, English, Turkish, and more.
@@ -31,16 +34,6 @@ You can support this project by making a donation to help ensure its sustainabil
 ## Interface Preview
 
 <img width="1010" height="633" alt="Yamira UI" src="https://github.com/user-attachments/assets/19430022-fb29-4224-adb1-a1b4c71f5d80" />
-
----
-
-## Advanced Capabilities
-
-Yamira offers a robust set of tools to maintain the integrity of your USB storage:
-
-* **Malware Defense:** Prevents common USB-borne viruses from tampering with your file structure.
-* **File Visibility Guard:** Actively counteracts malware that attempts to hide or delete user data.
-* **Multi-Architecture Support:** Native compatibility for x64, x86, and ARM64 processor architectures.
 
 ---
 
