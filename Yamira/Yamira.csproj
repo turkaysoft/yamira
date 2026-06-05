@@ -125,7 +125,6 @@
     <None Include="yamira_images\yamira_ui\theme_light\tm_theme_light.png" />
     <None Include="yamira_images\yamira_ui\theme_light\tm_startup_light.png" />
     <None Include="yamira_images\yamira_ui\theme_light\tm_settings_light.png" />
-    <None Include="yamira_images\yamira_ui\theme_light\tm_refresh_light.png" />
     <None Include="yamira_images\yamira_ui\theme_light\tm_language_light.png" />
     <None Include="yamira_images\yamira_ui\theme_light\tm_donate_mc_light.png" />
     <None Include="yamira_images\yamira_ui\theme_light\tm_donate_light.png" />
@@ -138,7 +137,6 @@
     <None Include="yamira_images\yamira_ui\theme_dark\tm_theme_dark.png" />
     <None Include="yamira_images\yamira_ui\theme_dark\tm_startup_dark.png" />
     <None Include="yamira_images\yamira_ui\theme_dark\tm_settings_dark.png" />
-    <None Include="yamira_images\yamira_ui\theme_dark\tm_refresh_dark.png" />
     <None Include="yamira_images\yamira_ui\theme_dark\tm_language_dark.png" />
     <None Include="yamira_images\yamira_ui\theme_dark\tm_donate_mc_dark.png" />
     <None Include="yamira_images\yamira_ui\theme_dark\tm_donate_dark.png" />
@@ -147,7 +145,9 @@
     <None Include="yamira_images\yamira_ui\theme_dark\ct_secure_off_dark.png" />
     <None Include="yamira_images\yamira_ui\theme_dark\ct_ntfs_format_dark.png" />
     <None Include="yamira_images\yamira_ui\theme_dark\ct_github_dark.png" />
-    <None Include="yamira_images\ts_preloader\ts_preloader.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="yamira_images\ts_preloader\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -34,7 +34,7 @@ namespace Yamira{
         // VERSIONS
         // ======================================================================================================
         public class TS_VersionEngine{
-            public static string TS_SofwareVersion(int v_mode){
+            public static string TS_SoftwareVersion(int v_mode){
                 string version_mode = "";
                 switch (v_mode){
                     case 0:
@@ -732,7 +732,7 @@ namespace Yamira{
         public static async Task<bool> IsNetworkAvailable(){
             if (!NetworkInterface.GetIsNetworkAvailable())
                 return false;
-            string[] urls ={
+            string[] urls = {
                 "https://www.gstatic.com/generate_204",
                 "https://www.cloudflare.com",
                 "https://www.google.com"
@@ -742,11 +742,11 @@ namespace Yamira{
                     client.Timeout = TimeSpan.FromSeconds(3);
                     foreach (var url in urls){
                         try{
-                            using (HttpResponseMessage response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead)){
+                            using (HttpResponseMessage response = await client.GetAsync(url, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false)){
                                 if (response.IsSuccessStatusCode)
                                     return true;
                             }
-                        }catch{ }
+                        }catch { }
                     }
                 }
             }catch{

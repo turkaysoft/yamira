@@ -1,7 +1,7 @@
 ﻿// ======================================================================================================
 // Türkaysoft - C# Custom Graphics UI Library
-// Library Version: v26.4
-// Compilation Date: 10.03.2026
+// Library Version: v26.6
+// Compilation Date: 04.06.2026
 // © Eray Türkay
 // ======================================================================================================
 
@@ -10,6 +10,7 @@
 // ---------------------------------------------------------
 // - Button
 // - CheckBox
+// - ComboBox
 // - DateTimePicker
 // - FlowLayoutPanel
 // - ListBox
@@ -95,8 +96,10 @@ namespace Yamira
         }
         private void Button_Resize(object sender, EventArgs e)
         {
-            if (BorderRadius > Height)
-                BorderRadius = Height;
+            float scale = DeviceDpi / 96f;
+            int maxRadius = (int)(Height / scale);
+            if (BorderRadius > maxRadius)
+                BorderRadius = maxRadius;
         }
         private float ScaleFactor => DeviceDpi / 96f;
         // Graphics
@@ -344,131 +347,74 @@ namespace Yamira
             DrawItem += TSCustomComboBox_DrawItem;
         }
         [Category("TS Appearance")]
-        [Description("Gets or sets the background color of the control.")]
         public override Color BackColor
         {
             get => _backColor;
-            set
-            {
-                _backColor = value;
-                base.BackColor = value;
-                Invalidate();
-            }
+            set { _backColor = value; base.BackColor = value; Invalidate(); }
         }
         [Category("TS Appearance")]
-        [Description("Gets or sets the foreground (text) color of the control.")]
         public override Color ForeColor
         {
             get => _foreColor;
-            set
-            {
-                _foreColor = value;
-                base.ForeColor = value;
-                Invalidate();
-            }
+            set { _foreColor = value; base.ForeColor = value; Invalidate(); }
         }
         [Category("TS Appearance")]
-        [Description("Gets or sets the border color of the control.")]
-        public Color BorderColor
-        {
-            get => _borderColor;
-            set { _borderColor = value; Invalidate(); }
-        }
+        public Color BorderColor { get => _borderColor; set { _borderColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the color of the button portion of the control.")]
-        public Color ButtonColor
-        {
-            get => _buttonColor;
-            set { _buttonColor = value; Invalidate(); }
-        }
+        public Color ButtonColor { get => _buttonColor; set { _buttonColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the color of the arrow displayed in the control.")]
-        public Color ArrowColor
-        {
-            get => _arrowColor;
-            set { _arrowColor = value; Invalidate(); }
-        }
+        public Color ArrowColor { get => _arrowColor; set { _arrowColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the color of the arrow when the control is disabled.")]
-        public Color DisabledArrowColor
-        {
-            get => _disabledArrowColor;
-            set { _disabledArrowColor = value; Invalidate(); }
-        }
+        public Color DisabledArrowColor { get => _disabledArrowColor; set { _disabledArrowColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the background color when the control is disabled.")]
-        public Color DisabledBackColor
-        {
-            get => _disabledBackColor;
-            set { _disabledBackColor = value; Invalidate(); }
-        }
+        public Color DisabledBackColor { get => _disabledBackColor; set { _disabledBackColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the text color when the control is disabled.")]
-        public Color DisabledForeColor
-        {
-            get => _disabledForeColor;
-            set { _disabledForeColor = value; Invalidate(); }
-        }
+        public Color DisabledForeColor { get => _disabledForeColor; set { _disabledForeColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the button color when the control is disabled.")]
-        public Color DisabledButtonColor
-        {
-            get => _disabledButtonColor;
-            set { _disabledButtonColor = value; Invalidate(); }
-        }
+        public Color DisabledButtonColor { get => _disabledButtonColor; set { _disabledButtonColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the border color when the control is focused.")]
-        public Color FocusedBorderColor
-        {
-            get => _focusedBorderColor;
-            set { _focusedBorderColor = value; Invalidate(); }
-        }
+        public Color FocusedBorderColor { get => _focusedBorderColor; set { _focusedBorderColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the background color when the mouse hovers over the control.")]
-        public Color HoverBackColor
-        {
-            get => _hoverBackColor;
-            set { _hoverBackColor = value; Invalidate(); }
-        }
+        public Color HoverBackColor { get => _hoverBackColor; set { _hoverBackColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the text color when the mouse hovers over the control.")]
-        public Color HoverForeColor
-        {
-            get => _hoverForeColor;
-            set { _hoverForeColor = value; Invalidate(); }
-        }
+        public Color HoverForeColor { get => _hoverForeColor; set { _hoverForeColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the button color when the mouse hovers over the control.")]
-        public Color HoverButtonColor
-        {
-            get => _hoverButtonColor;
-            set { _hoverButtonColor = value; Invalidate(); }
-        }
+        public Color HoverButtonColor { get => _hoverButtonColor; set { _hoverButtonColor = value; Invalidate(); } }
         [Category("TS Appearance")]
-        [Description("Gets or sets the background color of the selected item in the dropdown list.")]
         public Color SelectedBackColor { get; set; } = SystemColors.Highlight;
         [Category("TS Appearance")]
-        [Description("Gets or sets the text color of the selected item in the dropdown list.")]
         public Color SelectedForeColor { get; set; } = SystemColors.HighlightText;
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             Rectangle rect = ClientRectangle;
             bool rtl = RightToLeft == RightToLeft.Yes;
             float scale = DeviceDpi / 96f;
             int buttonWidth = (int)(20 * scale);
-            int padding = (int)(4 * scale);
+
+            int padding = (int)(6 * scale);
             Rectangle buttonRect = rtl ? new Rectangle(0, 0, buttonWidth, rect.Height) : new Rectangle(rect.Width - buttonWidth, 0, buttonWidth, rect.Height);
-            Rectangle textRect = rtl ? new Rectangle(buttonRect.Right + padding, 1, rect.Width - buttonRect.Width - padding, rect.Height - 2) : new Rectangle(padding, 1, rect.Width - buttonRect.Width - padding, rect.Height - 2);
-            Color back = !Enabled ? _disabledBackColor : _isHovering ? _hoverBackColor : _backColor;
-            Color fore = !Enabled ? _disabledForeColor : _isHovering ? _hoverForeColor : _foreColor;
-            Color button = !Enabled ? _disabledButtonColor : _isHovering ? _hoverButtonColor : _buttonColor;
+
+            Rectangle textRect = rtl ?
+                new Rectangle(buttonRect.Right + padding, 0, rect.Width - buttonRect.Width - (padding * 2), rect.Height) :
+                new Rectangle(padding, 0, rect.Width - buttonRect.Width - (padding * 2), rect.Height);
+
+            bool useHover = _isHovering && Enabled;
+            Color back = !Enabled ? _disabledBackColor : useHover ? _hoverBackColor : _backColor;
+            Color fore = !Enabled ? _disabledForeColor : useHover ? _hoverForeColor : _foreColor;
+            Color button = !Enabled ? _disabledButtonColor : useHover ? _hoverButtonColor : _buttonColor;
+
             using (SolidBrush b = new SolidBrush(back))
                 e.Graphics.FillRectangle(b, rect);
-            TextRenderer.DrawText(e.Graphics, Text, Font, textRect, fore, TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis | (rtl ? TextFormatFlags.Right : TextFormatFlags.Left));
+
+            TextFormatFlags flags = TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis | TextFormatFlags.NoPadding;
+            flags |= rtl ? TextFormatFlags.Right : TextFormatFlags.Left;
+
+            TextRenderer.DrawText(e.Graphics, Text, Font, textRect, fore, flags);
+
             using (SolidBrush b = new SolidBrush(button))
                 e.Graphics.FillRectangle(b, buttonRect);
+
             float aw = 8 * scale;
             float ah = 5 * scale;
             PointF c = new PointF(buttonRect.Left + buttonRect.Width / 2f, buttonRect.Top + buttonRect.Height / 2f);
@@ -480,24 +426,40 @@ namespace Yamira
             };
             using (SolidBrush b = new SolidBrush(!Enabled ? _disabledArrowColor : _arrowColor))
                 e.Graphics.FillPolygon(b, arrow);
+
             using (Pen p = new Pen(Focused ? _focusedBorderColor : _borderColor))
                 e.Graphics.DrawRectangle(p, 0, 0, rect.Width - 1, rect.Height - 1);
         }
+
         private void TSCustomComboBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             if (e.Index < 0) return;
             bool selected = (e.State & DrawItemState.Selected) != 0;
-            Color back = selected ? SelectedBackColor : (_isHovering ? _hoverBackColor : BackColor);
-            Color fore = selected ? SelectedForeColor : (_isHovering ? _hoverForeColor : ForeColor);
+            Color back = selected ? SelectedBackColor : BackColor;
+            Color fore = selected ? SelectedForeColor : ForeColor;
             using (SolidBrush b = new SolidBrush(back))
                 e.Graphics.FillRectangle(b, e.Bounds);
-            TextRenderer.DrawText(e.Graphics, Items[e.Index].ToString(), Font, e.Bounds, fore, TextFormatFlags.VerticalCenter | TextFormatFlags.Left | TextFormatFlags.EndEllipsis);
+
+            TextFormatFlags flags = TextFormatFlags.VerticalCenter | TextFormatFlags.NoPadding;
+            flags |= (RightToLeft == RightToLeft.Yes) ? TextFormatFlags.Right : TextFormatFlags.Left;
+
+            Rectangle itemBounds = new Rectangle(e.Bounds.X + 4, e.Bounds.Y, e.Bounds.Width - 8, e.Bounds.Height);
+            TextRenderer.DrawText(e.Graphics, Items[e.Index].ToString(), Font, itemBounds, fore, flags);
         }
+
         protected override void OnGotFocus(EventArgs e) { base.OnGotFocus(e); Invalidate(); }
         protected override void OnLostFocus(EventArgs e) { base.OnLostFocus(e); Invalidate(); }
         protected override void OnEnabledChanged(EventArgs e) { base.OnEnabledChanged(e); Invalidate(); }
         protected override void OnRightToLeftChanged(EventArgs e) { base.OnRightToLeftChanged(e); Invalidate(); }
         protected override void OnPaintBackground(PaintEventArgs e) { }
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x000F)
+            {
+                this.Invalidate();
+            }
+            base.WndProc(ref m);
+        }
     }
     #endregion
     // ======================================================================================================
@@ -646,7 +608,8 @@ namespace Yamira
             }
             if (this.Focused && this.ShowFocusCues && this.Enabled)
             {
-                ControlPaint.DrawFocusRectangle(e.Graphics, rect);
+                Rectangle focusRect = new Rectangle(2, 2, rect.Width - 4, rect.Height - 4);
+                ControlPaint.DrawFocusRectangle(e.Graphics, focusRect);
             }
         }
         protected override void OnValueChanged(EventArgs eventargs)
@@ -693,14 +656,16 @@ namespace Yamira
 
             if (!_restoringScroll)
             {
+                float dpiScale = DeviceDpi / 96f;
                 Point p = AutoScrollPosition;
-                _savedScrollPosition = new Point(-p.X, -p.Y);
+                _savedScrollPosition = new Point((int)(-p.X / dpiScale), (int)(-p.Y / dpiScale));
             }
         }
         protected override void OnResize(EventArgs e)
         {
+            float dpiScale = DeviceDpi / 96f;
             Point p = AutoScrollPosition;
-            _savedScrollPosition = new Point(-p.X, -p.Y);
+            _savedScrollPosition = new Point((int)(-p.X / dpiScale), (int)(-p.Y / dpiScale));
             base.OnResize(e);
             if (!IsHandleCreated || DesignMode)
                 return;
@@ -709,7 +674,8 @@ namespace Yamira
                 try
                 {
                     _restoringScroll = true;
-                    AutoScrollPosition = _savedScrollPosition;
+                    float restoreDpiScale = DeviceDpi / 96f;
+                    AutoScrollPosition = new Point((int)(_savedScrollPosition.X * restoreDpiScale), (int)(_savedScrollPosition.Y * restoreDpiScale));
                 }
                 finally
                 {
@@ -737,7 +703,8 @@ namespace Yamira
         }
         private void UpdateItemHeight()
         {
-            this.ItemHeight = this.Font.Height + 5;
+            float dpiScale = (float)DeviceDpi / 96f;
+            this.ItemHeight = (int)((this.Font.Height + 5) * dpiScale);
         }
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -1102,7 +1069,7 @@ namespace Yamira
                 using (SolidBrush br = new SolidBrush(TrackFillColor))
                     g.FillPath(br, fillPath);
             }
-            PointF thumbCenter = Vertical ? new PointF(Width / 2f, trackRect.Bottom - (trackRect.Height * ratio))  : new PointF(trackRect.X + (trackRect.Width * ratio), Height / 2f);
+            PointF thumbCenter = Vertical ? new PointF(Width / 2f, trackRect.Bottom - (trackRect.Height * ratio)) : new PointF(trackRect.X + (trackRect.Width * ratio), Height / 2f);
             RectangleF thumbRect = new RectangleF(thumbCenter.X - thumbR, thumbCenter.Y - thumbR, thumbR * 2, thumbR * 2);
             Color activeThumbColor = _pressed ? ThumbPressedColor : (_hover ? ThumbHoverColor : ThumbColor);
             using (SolidBrush br = new SolidBrush(activeThumbColor))

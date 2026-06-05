@@ -243,26 +243,6 @@ namespace Yamira.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap tm_refresh_dark {
-            get {
-                object obj = ResourceManager.GetObject("tm_refresh_dark", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
-        internal static System.Drawing.Bitmap tm_refresh_light {
-            get {
-                object obj = ResourceManager.GetObject("tm_refresh_light", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
-        /// </summary>
         internal static System.Drawing.Bitmap tm_settings_dark {
             get {
                 object obj = ResourceManager.GetObject("tm_settings_dark", resourceCulture);

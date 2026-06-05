@@ -59,7 +59,6 @@
             this.windowedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullScreenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.checkForUpdatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.donateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainToolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -80,7 +79,6 @@
             // 
             this.HeaderMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingsToolStripMenuItem,
-            this.refreshToolStripMenuItem,
             this.donateToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.HeaderMenu.Location = new System.Drawing.Point(0, 0);
@@ -279,15 +277,6 @@
             this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.checkForUpdatesToolStripMenuItem.Text = "Check for Updates";
             this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.CheckForUpdatesToolStripMenuItem_Click);
-            // 
-            // refreshToolStripMenuItem
-            // 
-            this.refreshToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.refreshToolStripMenuItem.Text = "Refresh";
-            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.RefreshToolStripMenuItem_Click);
             // 
             // donateToolStripMenuItem
             // 
@@ -533,7 +522,6 @@
         private TSCustomButton BtnActiveProtect;
         private TSCustomButton BtnFormatNTFS;
         private System.Windows.Forms.Label Label_NotUSB;
-        private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemThemeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polishToolStripMenuItem;

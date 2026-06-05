@@ -18,6 +18,7 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Reflection;
 using System.Security.AccessControl;
 using System.Security.Principal;
@@ -228,15 +229,10 @@ namespace Yamira{
             DataMainTable.Rows.Add(@"H:\", "TS Samsung Bar Plus", "NTFS", "119,1 GB", "58,6 GB", "Off", false);
             DataMainTable.ClearSelection();
         }
-        // REFRESH
-        // ======================================================================================================
-        private void RefreshToolStripMenuItem_Click(object sender, EventArgs e){
-            LoadUSBDrives();
-        }
         // LOAD
         // ======================================================================================================
         private void Yamira_Load(object sender, EventArgs e){
-            Text = TS_VersionEngine.TS_SofwareVersion(0);
+            Text = TS_VersionEngine.TS_SoftwareVersion(0);
             HeaderMenu.Cursor = Cursors.Hand;
             //
             RunSoftwareEngine();
@@ -385,7 +381,7 @@ namespace Yamira{
                 if (!string.Equals(driveInfo.DriveFormat, "NTFS", StringComparison.OrdinalIgnoreCase)){
                     DialogResult result = TS_MessageBoxEngine.TS_MessageBox(this, 6, string.Format(software_lang.TSReadLangs("Yamira", "y_ntfs_warning"), "\n\n", "\n\n"));
                     if (result == DialogResult.Yes){
-                        this.Text = TS_VersionEngine.TS_SofwareVersion(0) + " - " + software_lang.TSReadLangs("Yamira", "y_ntfs_format_title");
+                        this.Text = TS_VersionEngine.TS_SoftwareVersion(0) + " - " + software_lang.TSReadLangs("Yamira", "y_ntfs_format_title");
                         Task.Run(() => FormatDrive(driveInfo.RootDirectory.ToString(), "TS_USB"));
                     }
                 }else{
@@ -427,11 +423,11 @@ namespace Yamira{
                     process.WaitForExit();
                     if (this.InvokeRequired){
                         this.BeginInvoke((MethodInvoker)(() => {
-                            Text = TS_VersionEngine.TS_SofwareVersion(0);
+                            Text = TS_VersionEngine.TS_SoftwareVersion(0);
                             LoadUSBDrives();
                         }));
                     }else{
-                        Text = TS_VersionEngine.TS_SofwareVersion(0);
+                        Text = TS_VersionEngine.TS_SoftwareVersion(0);
                         LoadUSBDrives();
                     }
                     if (process.ExitCode == 0){
@@ -443,11 +439,11 @@ namespace Yamira{
             }catch (Exception ex){
                 if (this.InvokeRequired){
                     this.BeginInvoke((MethodInvoker)(() => {
-                        Text = TS_VersionEngine.TS_SofwareVersion(0);
+                        Text = TS_VersionEngine.TS_SoftwareVersion(0);
                         LoadUSBDrives();
                     }));
                 }else{
-                    Text = TS_VersionEngine.TS_SofwareVersion(0);
+                    Text = TS_VersionEngine.TS_SoftwareVersion(0);
                     LoadUSBDrives();
                 }
                 TS_MessageBoxEngine.TS_MessageBox(this, 3, string.Format(software_lang.TSReadLangs("Yamira", "y_default_error"), ex.Message));
@@ -595,7 +591,6 @@ namespace Yamira{
                     TSImageRenderer(languageToolStripMenuItem, Properties.Resources.tm_language_light, 0, ContentAlignment.MiddleRight);
                     TSImageRenderer(startupToolStripMenuItem, Properties.Resources.tm_startup_light, 0, ContentAlignment.MiddleRight);
                     TSImageRenderer(checkForUpdatesToolStripMenuItem, Properties.Resources.tm_update_light, 0, ContentAlignment.MiddleRight);
-                    TSImageRenderer(refreshToolStripMenuItem, Properties.Resources.tm_refresh_light, 0, ContentAlignment.MiddleRight);
                     TSImageRenderer(donateToolStripMenuItem, Properties.Resources.tm_donate_light, 0, ContentAlignment.MiddleRight);
                     TSImageRenderer(aboutToolStripMenuItem, Properties.Resources.tm_about_light, 0, ContentAlignment.MiddleRight);
                     // UI
@@ -608,7 +603,6 @@ namespace Yamira{
                     TSImageRenderer(languageToolStripMenuItem, Properties.Resources.tm_language_dark, 0, ContentAlignment.MiddleRight);
                     TSImageRenderer(startupToolStripMenuItem, Properties.Resources.tm_startup_dark, 0, ContentAlignment.MiddleRight);
                     TSImageRenderer(checkForUpdatesToolStripMenuItem, Properties.Resources.tm_update_dark, 0, ContentAlignment.MiddleRight);
-                    TSImageRenderer(refreshToolStripMenuItem, Properties.Resources.tm_refresh_dark, 0, ContentAlignment.MiddleRight);
                     TSImageRenderer(donateToolStripMenuItem, Properties.Resources.tm_donate_dark, 0, ContentAlignment.MiddleRight);
                     TSImageRenderer(aboutToolStripMenuItem, Properties.Resources.tm_about_dark, 0, ContentAlignment.MiddleRight);
                     // UI
@@ -759,8 +753,6 @@ namespace Yamira{
                 fullScreenToolStripMenuItem.Text = software_lang.TSReadLangs("HeaderViewMode", "header_view_mode_full_screen");
                 // UPDATE CHECK
                 checkForUpdatesToolStripMenuItem.Text = software_lang.TSReadLangs("HeaderMenu", "header_menu_update");
-                // REFRESH
-                refreshToolStripMenuItem.Text = software_lang.TSReadLangs("HeaderMenu", "header_menu_refresh");
                 // DONATE
                 donateToolStripMenuItem.Text = software_lang.TSReadLangs("HeaderMenu", "header_menu_donate");
                 // ABOUT
@@ -855,7 +847,7 @@ namespace Yamira{
                     handler.UseProxy = false;
                     using (HttpClient httpClient = new HttpClient(handler)){
                         httpClient.Timeout = TimeSpan.FromSeconds(15);
-                        httpClient.DefaultRequestHeaders.CacheControl = new System.Net.Http.Headers.CacheControlHeaderValue{ NoCache = true, NoStore = true, MustRevalidate = true };
+                        httpClient.DefaultRequestHeaders.CacheControl = new CacheControlHeaderValue{ NoCache = true, NoStore = true, MustRevalidate = true };
                         httpClient.DefaultRequestHeaders.Pragma.ParseAdd("no-cache");
                         string versionUrl = TS_LinkSystem.github_link_lv;
                         versionUrl += (versionUrl.Contains("?") ? "&" : "?") + "_ts=" + DateTimeOffset.UtcNow.ToUnixTimeSeconds();
