@@ -68,7 +68,7 @@
             this.BtnActiveProtect = new Yamira.TSCustomButton();
             this.BtnDisabledProtect = new Yamira.TSCustomButton();
             this.BtnFormatNTFS = new Yamira.TSCustomButton();
-            this.Label_NotUSB = new System.Windows.Forms.Label();
+            this.Label_NotUSB = new Yamira.TSCustomLabel();
             this.HeaderMenu.SuspendLayout();
             this.Panel_BG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataMainTable)).BeginInit();
@@ -282,7 +282,7 @@
             // 
             this.donateToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.donateToolStripMenuItem.Name = "donateToolStripMenuItem";
-            this.donateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.donateToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.D)));
             this.donateToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.donateToolStripMenuItem.Text = "Donate";
@@ -460,6 +460,7 @@
             // Label_NotUSB
             // 
             this.Label_NotUSB.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Label_NotUSB.BorderRadius = 10;
             this.Label_NotUSB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Label_NotUSB.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.Label_NotUSB.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -521,7 +522,7 @@
         private TSCustomButton BtnDisabledProtect;
         private TSCustomButton BtnActiveProtect;
         private TSCustomButton BtnFormatNTFS;
-        private System.Windows.Forms.Label Label_NotUSB;
+        private TSCustomLabel Label_NotUSB;
         private System.Windows.Forms.ToolStripMenuItem donateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem systemThemeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem polishToolStripMenuItem;

@@ -323,9 +323,9 @@ namespace Yamira.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap ts_close {
+        internal static System.Drawing.Bitmap ts_about {
             get {
-                object obj = ResourceManager.GetObject("ts_close", resourceCulture);
+                object obj = ResourceManager.GetObject("ts_about", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -333,9 +333,9 @@ namespace Yamira.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap ts_preloader {
+        internal static System.Drawing.Bitmap ts_close {
             get {
-                object obj = ResourceManager.GetObject("ts_preloader", resourceCulture);
+                object obj = ResourceManager.GetObject("ts_close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
