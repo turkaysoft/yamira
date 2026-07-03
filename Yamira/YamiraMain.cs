@@ -32,7 +32,6 @@ namespace Yamira{
     public partial class YamiraMain : Form{
         public YamiraMain(){
             InitializeComponent();
-            CheckForIllegalCrossThreadCalls = false;
             //
             DataMainTable.RowTemplate.Height = (int)(26 * this.DeviceDpi / 96f);
             for (int i = 0; i < 7; i++){ DataMainTable.Columns.Add("y_data", "Data"); }
@@ -234,8 +233,9 @@ namespace Yamira{
         private void Yamira_Load(object sender, EventArgs e){
             Text = TS_VersionEngine.TS_SoftwareVersion(0);
             HeaderMenu.Cursor = Cursors.Hand;
-            //
+            // LOAD MODULE
             RunSoftwareEngine();
+            //
             if (!Program.virtualization_mode){
                 LoadUSBDrives();
             }else{
@@ -611,41 +611,41 @@ namespace Yamira{
                     TSImageRenderer(BtnFormatNTFS, Properties.Resources.ct_ntfs_format_dark, 18, ContentAlignment.MiddleLeft);
                 }
                 //
-                header_colors[0] = TS_ThemeEngine.ColorMode(theme, "HeaderBGColor2");
-                header_colors[1] = TS_ThemeEngine.ColorMode(theme, "HeaderFEColor2");
-                header_colors[2] = TS_ThemeEngine.ColorMode(theme, "AccentColor");
+                header_colors[0] = TS_ThemeEngine.ColorMode(theme, "TSBT_BGColor2");
+                header_colors[1] = TS_ThemeEngine.ColorMode(theme, "TSBT_LabelColor1");
+                header_colors[2] = TS_ThemeEngine.ColorMode(theme, "TSBT_AccentColor");
                 HeaderMenu.Renderer = new HeaderMenuColors();
                 // TOOLTIP
-                MainToolTip.ForeColor = TS_ThemeEngine.ColorMode(theme, "HeaderFEColor");
-                MainToolTip.BackColor = TS_ThemeEngine.ColorMode(theme, "HeaderBGColor");
+                MainToolTip.ForeColor = TS_ThemeEngine.ColorMode(theme, "TSBT_LabelColor1");
+                MainToolTip.BackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_BGColor");
                 // HEADER MENU
-                var bg = TS_ThemeEngine.ColorMode(theme, "HeaderBGColor");
-                var fg = TS_ThemeEngine.ColorMode(theme, "HeaderFEColor");
+                var bg = TS_ThemeEngine.ColorMode(theme, "TSBT_BGColor");
+                var fg = TS_ThemeEngine.ColorMode(theme, "TSBT_LabelColor1");
                 HeaderMenu.ForeColor = fg;
                 HeaderMenu.BackColor = bg;
                 SetMenuStripColors(HeaderMenu, bg, fg);
                 // CONTENT BG
-                BackColor = TS_ThemeEngine.ColorMode(theme, "PageContainerBGColor");
-                Panel_Right.BackColor = TS_ThemeEngine.ColorMode(Convert.ToInt32(theme), "PageContainerBGColor");
+                BackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_BGColor");
+                Panel_Right.BackColor = TS_ThemeEngine.ColorMode(Convert.ToInt32(theme), "TSBT_BGColor");
                 // ALL BUTTON
                 foreach (Control control in Panel_Right.Controls){
                     if (control is Button button){
                         button.ForeColor = TS_ThemeEngine.ColorMode(theme, "DynamicThemeActiveBtnBGColor");
-                        button.BackColor = TS_ThemeEngine.ColorMode(theme, "AccentColor");
-                        button.FlatAppearance.BorderColor = TS_ThemeEngine.ColorMode(theme, "AccentColor");
-                        button.FlatAppearance.MouseDownBackColor = TS_ThemeEngine.ColorMode(theme, "AccentColor");
+                        button.BackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_AccentColor");
+                        button.FlatAppearance.BorderColor = TS_ThemeEngine.ColorMode(theme, "TSBT_AccentColor");
+                        button.FlatAppearance.MouseDownBackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_AccentColor");
                         button.FlatAppearance.MouseOverBackColor = TS_ThemeEngine.ColorMode(theme, "AccentColorHover");
                     }
                 }
                 // NOT USB DEVICE LABEL
-                Label_NotUSB.BackColor = TS_ThemeEngine.ColorMode(theme, "DataGridBGColor");
-                Label_NotUSB.ForeColor = TS_ThemeEngine.ColorMode(theme, "HeaderFEColor2");
+                Label_NotUSB.BackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_BGColor2");
+                Label_NotUSB.ForeColor = TS_ThemeEngine.ColorMode(theme, "TSBT_LabelColor1");
                 // DATA TABLE
-                DataMainTable.BackgroundColor = TS_ThemeEngine.ColorMode(theme, "DataGridBGColor");
+                DataMainTable.BackgroundColor = TS_ThemeEngine.ColorMode(theme, "TSBT_BGColor2");
                 DataMainTable.GridColor = TS_ThemeEngine.ColorMode(theme, "DataGridGridColor");
-                DataMainTable.DefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(theme, "DataGridBGColor");
-                DataMainTable.DefaultCellStyle.ForeColor = TS_ThemeEngine.ColorMode(theme, "DataGridFEColor");
-                DataMainTable.AlternatingRowsDefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(theme, "DataGridAlternatingColor");
+                DataMainTable.DefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_BGColor2");
+                DataMainTable.DefaultCellStyle.ForeColor = TS_ThemeEngine.ColorMode(theme, "TSBT_LabelColor1");
+                DataMainTable.AlternatingRowsDefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_BGColor");
                 DataMainTable.ColumnHeadersDefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(theme, "DataGridHeaderBGColor");
                 DataMainTable.ColumnHeadersDefaultCellStyle.SelectionBackColor = TS_ThemeEngine.ColorMode(theme, "DataGridHeaderBGColor");
                 DataMainTable.ColumnHeadersDefaultCellStyle.ForeColor = TS_ThemeEngine.ColorMode(theme, "DataGridHeaderFEColor");
@@ -795,7 +795,7 @@ namespace Yamira{
                 software_about.Name = software_about_name;
                 if (Application.OpenForms[software_about_name] != null){
                     software_about = (YamiraAbout)Application.OpenForms[software_about_name];
-                    software_about.About_preloader();
+                    software_about.About_Preloader();
                 }
             }catch (Exception){ }
         }

@@ -37,7 +37,7 @@ namespace Yamira{
         // ======================================================================================================
         protected override void OnHandleCreated(EventArgs e){
             base.OnHandleCreated(e);
-            if (Program.windows_mode == 1){
+            if (Program.Windows_mode == 1){
                 int preference = (int)DWM_WINDOW_CORNER_PREFERENCE.Round;
                 DwmSetWindowAttribute(this.Handle, DWMWA_WINDOW_CORNER_PREFERENCE, ref preference, sizeof(int));
             }
@@ -51,7 +51,7 @@ namespace Yamira{
                 LabelVersion.Text = TS_VersionEngine.TS_SoftwareVersion(1);
                 LabelCopyright.Text = TS_SoftwareCopyrightDate.ts_scd_preloader;
                 // GET PRELOAD SETTINGS
-                About_preloader();
+                About_Preloader();
                 //
                 await Task.Run(() => LoadLanguageConverterName());
             }catch (Exception){ }
@@ -69,7 +69,7 @@ namespace Yamira{
         }
         // DYNAMIC THEME VOID
         // ======================================================================================================
-        public void About_preloader(){
+        public void About_Preloader(){
             try{
                 TSThemeModeHelper.InitializeThemeForForm(this);
                 //
@@ -95,11 +95,11 @@ namespace Yamira{
                 TSImageRenderer(About_GitHubBtn, YamiraMain.theme == 1 ? Properties.Resources.ct_github_light : Properties.Resources.ct_github_dark, 18, ContentAlignment.MiddleRight);
                 TSImageRenderer(About_DonateBtn, YamiraMain.theme == 1 ? Properties.Resources.tm_donate_mc_light : Properties.Resources.tm_donate_mc_dark, 18, ContentAlignment.MiddleRight);
                 //
-                AboutTable.BackgroundColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridBGColor");
+                AboutTable.BackgroundColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "TSBT_BGColor2");
                 AboutTable.GridColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridGridColor");
-                AboutTable.DefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridBGColor");
-                AboutTable.DefaultCellStyle.ForeColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridFEColor");
-                AboutTable.AlternatingRowsDefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridAlternatingColor");
+                AboutTable.DefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "TSBT_BGColor2");
+                AboutTable.DefaultCellStyle.ForeColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "TSBT_LabelColor1");
+                AboutTable.AlternatingRowsDefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "TSBT_BGColor");
                 AboutTable.ColumnHeadersDefaultCellStyle.BackColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridHeaderBGColor");
                 AboutTable.ColumnHeadersDefaultCellStyle.SelectionBackColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridHeaderBGColor");
                 AboutTable.ColumnHeadersDefaultCellStyle.ForeColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridHeaderFEColor");
