@@ -20,6 +20,7 @@ You can support this project by making a donation to help ensure its sustainabil
 
 * **Privacy First:** Your data stays on your machine; no information is transferred to external servers.
 * **Pure Performance:** Developed exclusively in **C# and .NET Framework** with no external libraries or dependencies.
+* **Portable:** No installation required. Just download it, extract all files from the ZIP, select the appropriate architecture, and run it.
 * **Instant Protection:** Automatically secures USB devices against malware upon connection.
 * **Malware Defense:** Prevents common USB-borne viruses from tampering with your file structure.
 * **File Visibility Guard:** Actively counteracts malware that attempts to hide or delete user data.
