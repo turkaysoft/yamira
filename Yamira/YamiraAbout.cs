@@ -16,7 +16,7 @@ namespace Yamira{
             //
             PanelHeader.Parent = ImageAbout;
             CloseAboutBtn.Parent = PanelHeader;
-            AboutTable.RowTemplate.Height = (int)(24 * this.DeviceDpi / 96f);
+            AboutTable.RowTemplate.Height = (int)(28 * this.DeviceDpi / 96f);
             AboutTable.Columns.Add("LangName", "Language");
             AboutTable.Columns.Add("LangTranslator", "Translator");
             AboutTable.Columns[0].Width = (int)(110 * this.DeviceDpi / 96f);
@@ -83,7 +83,7 @@ namespace Yamira{
                 //
                 foreach (Control ui_buttons in PanelTxt.Controls){
                     if (ui_buttons is Button about_button){
-                        about_button.ForeColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DynamicThemeActiveBtnBGColor");
+                        about_button.ForeColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridHeaderFEColor");
                         about_button.BackColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridHeaderBGColor");
                         about_button.FlatAppearance.BorderColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridHeaderBGColor");
                         about_button.FlatAppearance.MouseDownBackColor = TS_ThemeEngine.ColorMode(YamiraMain.theme, "DataGridHeaderBGColor");

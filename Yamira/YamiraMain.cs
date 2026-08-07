@@ -33,7 +33,7 @@ namespace Yamira{
         public YamiraMain(){
             InitializeComponent();
             //
-            DataMainTable.RowTemplate.Height = (int)(26 * this.DeviceDpi / 96f);
+            DataMainTable.RowTemplate.Height = (int)(32 * this.DeviceDpi / 96f);
             for (int i = 0; i < 7; i++){ DataMainTable.Columns.Add("y_data", "Data"); }
             DataMainTable.Columns[0].Width = (int)(95 * this.DeviceDpi / 96f);
             DataMainTable.Columns[1].Width = (int)(200 * this.DeviceDpi / 96f);
@@ -630,7 +630,7 @@ namespace Yamira{
                 // ALL BUTTON
                 foreach (Control control in Panel_Right.Controls){
                     if (control is Button button){
-                        button.ForeColor = TS_ThemeEngine.ColorMode(theme, "DynamicThemeActiveBtnBGColor");
+                        button.ForeColor = TS_ThemeEngine.ColorMode(theme, "DataGridHeaderFEColor");
                         button.BackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_AccentColor");
                         button.FlatAppearance.BorderColor = TS_ThemeEngine.ColorMode(theme, "TSBT_AccentColor");
                         button.FlatAppearance.MouseDownBackColor = TS_ThemeEngine.ColorMode(theme, "TSBT_AccentColor");
@@ -683,15 +683,16 @@ namespace Yamira{
         }
         // LANGUAGES SETTINGS
         // ======================================================================================================
+        private ToolStripMenuItem selected_lang = null;
         private void Select_lang_active(object target_lang){
-            ToolStripMenuItem selected_lang = null;
+            if (target_lang == null)
+                return;
+            ToolStripMenuItem clicked_lang = (ToolStripMenuItem)target_lang;
+            if (selected_lang == clicked_lang)
+                return;
             Select_lang_deactive();
-            if (target_lang != null){
-                if (selected_lang != (ToolStripMenuItem)target_lang){
-                    selected_lang = (ToolStripMenuItem)target_lang;
-                    selected_lang.Checked = true;
-                }
-            }
+            selected_lang = clicked_lang;
+            selected_lang.Checked = true;
         }
         private void Select_lang_deactive(){
             foreach (ToolStripMenuItem disabled_lang in languageToolStripMenuItem.DropDownItems){
@@ -801,15 +802,16 @@ namespace Yamira{
         }
         // STARTUP SETINGS
         // ======================================================================================================
+        private ToolStripMenuItem selected_startup_mode = null;
         private void Select_startup_mode_active(object target_startup_mode){
-            ToolStripMenuItem selected_startup_mode = null;
+            if (target_startup_mode == null)
+                return;
+            ToolStripMenuItem clicked_startup_mode = (ToolStripMenuItem)target_startup_mode;
+            if (selected_startup_mode == clicked_startup_mode)
+                return;
             Select_startup_mode_deactive();
-            if (target_startup_mode != null){
-                if (selected_startup_mode != (ToolStripMenuItem)target_startup_mode){
-                    selected_startup_mode = (ToolStripMenuItem)target_startup_mode;
-                    selected_startup_mode.Checked = true;
-                }
-            }
+            selected_startup_mode = clicked_startup_mode;
+            selected_startup_mode.Checked = true;
         }
         private void Select_startup_mode_deactive(){
             foreach (ToolStripMenuItem disabled_startup in startupToolStripMenuItem.DropDownItems){

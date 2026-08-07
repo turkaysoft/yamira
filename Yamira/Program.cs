@@ -125,7 +125,7 @@ namespace Yamira{
                         }
                         File.WriteAllText(ts_sf, string.Empty);
                     }
-                    string uiLang = CultureInfo.InstalledUICulture.TwoLetterISOLanguageName.Trim();
+                    string uiLang = CultureInfo.InstalledUICulture.Name.Trim().ToLowerInvariant();
                     TSSettingsModule settings = new TSSettingsModule(ts_sf);
                     var defaults = GetDefaultSettings(uiLang).ToList();
                     foreach (var (key, valueFactory) in defaults){
