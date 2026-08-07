@@ -33,7 +33,7 @@ You can support this project by making a donation to help ensure its sustainabil
 
 ## Interface Preview
 
-<img width="1010" height="633" alt="Yamira UI" src="https://github.com/user-attachments/assets/b897e05a-5ef2-4e26-85ee-0951a4171dbc" />
+<img width="1010" height="633" alt="Yamira UI" src="https://github.com/user-attachments/assets/3010282b-91ce-4de1-b901-e670f6b4ac78" />
 
 ---
 
