@@ -242,7 +242,7 @@ namespace Yamira{
                 VirtualizationModeData();
             }
             //
-            Task softwareUpdateCheck = Task.Run(() => Software_update_check(0));
+            Task.Run(() => Software_update_check(0));
         }
         // BTN ACTIVE PROTECT
         // ======================================================================================================
