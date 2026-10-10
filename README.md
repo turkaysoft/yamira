@@ -35,7 +35,6 @@ You can support this project by making a donation to help ensure its sustainabil
 
 <img width="1010" height="633" alt="Yamira UI" src="https://github.com/user-attachments/assets/345fed49-9aa9-4ede-b2df-7f637d6e9ef0" />
 
-
 ---
 
 ## Getting Started
