@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
-using System.Management;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Globalization;
@@ -12,9 +11,6 @@ using static Yamira.TSModules;
 namespace Yamira{
     internal static class Program{
         // ======================================================================================================
-        // GLOBAL SYSTEM INFO
-        public static int Windows_mode { get; private set; } = 0;
-        // ======================================================================================================
         // TS UPDATER TEXT
         public static readonly string updater_exe_name = "TSUpdater.exe";
         public static readonly string updater_old_exe_name = "TSUpdater.exe.old";
@@ -24,17 +20,6 @@ namespace Yamira{
         // ======================================================================================================
         [STAThread]
         static void Main(){
-            SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
-            // ------------------------------------------------------------------
-            // CHECK WINDOWS VERSION
-            try{
-                using (var searcher = new ManagementObjectSearcher("root\\CIMV2", "SELECT Caption FROM Win32_OperatingSystem"))
-                using (var results = searcher.Get()){
-                    string caption = results.Cast<ManagementObject>().Select(mo => mo["Caption"]?.ToString()).FirstOrDefault();
-                    Windows_mode = (caption?.IndexOf("Windows 11", StringComparison.OrdinalIgnoreCase) >= 0) ? 1 : 0;
-                }
-            }catch (Exception){ }
-            // ------------------------------------------------------------------
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // TS HYPER LOADER
